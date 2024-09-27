@@ -1,0 +1,133 @@
+{
+  "usuarios": [
+    {
+      "id": "3ca7",
+      "nome": "George Lucas",
+      "age": "1940-05-04",
+      "sexo": "masculino",
+      "cpf": "111.333.487-12",
+      "cep": "06397-290",
+      "endereco": "Rua Boa Vista, Vila Lourdes, Carapicuíba - SP",
+      "email": "george@email.com",
+      "senha": "12345"
+    },
+    {
+      "id": "3dc8",
+      "nome": "Anna Maria",
+      "age": "1970-04-05",
+      "sexo": "feminino",
+      "cpf": "091.569.785-00",
+      "cep": "01001-000",
+      "endereco": "Praça da Sé, Sé, São Paulo - SP",
+      "email": "anna@email.com",
+      "senha": "123"
+    },
+    {
+      "id": "fdbc",
+      "nome": "Manoel Ávila",
+      "age": "1980-02-08",
+      "sexo": "masculino",
+      "cpf": "458.457.963-21",
+      "cep": "88058-000",
+      "endereco": "Rodovia Armando Calil Bulos, Vargem Grande, Florianópolis - SC",
+      "email": "manoel@email.com",
+      "senha": "123"
+    },
+    {
+      "id": "c30d",
+      "nome": "Isabelle Nogueira",
+      "age": "1996-07-31",
+      "sexo": "feminino",
+      "cpf": "459.748.444-02",
+      "cep": "30130-003",
+      "endereco": "Avenida Afonso Pena, Centro, Belo Horizonte - MG",
+      "email": "isa@email.com",
+      "senha": "123"
+    },
+    {
+      "id": "b642",
+      "nome": "Karine Barros",
+      "age": "1978-03-28",
+      "sexo": "feminino",
+      "cpf": "000.111.222-10",
+      "cep": "06397-290",
+      "endereco": "Rua Boa Vista, Vila Lourdes, Carapicuíba - SP",
+      "email": "ka@email.com",
+      "senha": "123"
+    },
+    {
+      "id": "8954",
+      "nome": "Christian Barreto",
+      "age": "1988-12-10",
+      "sexo": "masculino",
+      "cpf": "131.558.927-88",
+      "cep": "28930-000",
+      "endereco": ", , Arraial do Cabo - RJ",
+      "email": "chris@email.com",
+      "senha": "123"
+    },
+    {
+      "id": "9994",
+      "nome": "Gabriela",
+      "age": "1992-09-05",
+      "sexo": "feminino",
+      "cpf": "148.588.475-00",
+      "cep": "24915-000",
+      "endereco": "Estrada da Praia, Restinga de Maricá, Maricá - RJ",
+      "email": "gabi@email.com",
+      "senha": "123"
+    }
+  ],
+  "locais": [
+    {
+      "id": "a134",
+      "idUsuario": "fdbc",
+      "nomeLocal": "Ilha do campeche",
+      "descricao": "A Ilha do Campeche é uma ilha localizada em Florianópolis, próxima a ilha de Santa Catarina. Fica a cerca de 1,6 km ao leste da praia do Campeche, no Oceano Atlântico. Tem cerca de 1,6 km de comprimento no sentido norte-sul. Seu uso e conservação estão definidos na Portaria do IPHAN nº 691, de 23 de novembro de 2009",
+      "cep": "88063544",
+      "localizacao": "Servidão Ilha Campeche, Campeche, Florianópolis - SC",
+      "latitude": "-27.67045",
+      "longitude": "-48.48144"
+    },
+    {
+      "id": "6673",
+      "idUsuario": "c30d",
+      "nomeLocal": "Parque Nacional da Serra da Canastra",
+      "descricao": "O Parque Nacional da Serra da Canastra é um dos mais importantes parques nacionais brasileiros, criado em 1972 através do decreto 70.355 de 1972. Dentro do parque está localizada a nascente histórica do rio São Francisco, no município de São Roque de Minas.\nÓtimo para trilhas, off-road, escaladas e cavalgadas.",
+      "cep": "37928000",
+      "localizacao": "MG-341, São Roque de Minas - MG",
+      "latitude": "-20.217",
+      "longitude": " -46.833"
+    },
+    {
+      "nomeLocal": "Praia do forno",
+      "descricao": "praia em Arraial do Cabo-RJ de águas cristalinas. O acesso é feito com uma trilha leve com duração de 10minutos ou barco táxi ",
+      "idUsuario": "b642",
+      "cep": "28930000",
+      "localizacao": "Arraial do Cabo - RJ",
+      "latitude": "-22.968879",
+      "longitude": "-42.019195",
+      "id": "426b"
+    },
+    {
+      "id": "d886",
+      "idUsuario": "3dc8",
+      "nomeLocal": "Fervedouro do Ceiça",
+      "descricao": "Piscina natural, pitoresca e de água azul transparente em um lugar cercado por bananeiras. Acesso bem fácil e não há trilha a ser percorrida. maximo de 10 pessoas ao mesmo tempo, havendo fila",
+      "cep": "77605000",
+      "localizacao": "Mateiros - TO",
+      "latitude": "-10,14759",
+      "longitude": "-46,50135"
+    },
+    {
+      "id": "6017",
+      "idUsuario": "8954",
+      "nomeLocal": "Pontal do Atalaia",
+      "descricao": "O Pontal do Atalaia é um dos pontos mais bonitos de Arraial do Cabo, com vegetação nativa e as mais lindas praias do mundo.",
+      "cep": "28930000",
+      "localizacao": "Arraial do Cabo - RJ",
+      "latitude": "-22.989598",
+      "longitude": " -42.014858"
+    }
+  ]
+}
