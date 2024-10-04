@@ -7,6 +7,7 @@ import CadastrarLocais from "../pages/CadastrarLocais";
 import GerenciarLocais from "../pages/GerenciarLocais";
 import NotFound from "../pages/NotFound";
 import { useAuth } from "../context/authContext";
+import PublicDashboard from "../pages/Dashboard/publicDashboard";
 
 export default function RoutesComponent() {
   const { usuario } = useAuth();
@@ -16,8 +17,11 @@ export default function RoutesComponent() {
       <Routes>
         {!usuario ? (
           <>
-            <Route path="/" element={<Login />}/>
-            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/" >
+              <Route index element={<PublicDashboard/>} />
+              <Route path="/login" element={<Login />}/>
+              <Route path="/cadastro" element={<Cadastro />} />
+            </Route>
           </>   
         ) : (
           <Route path="/" element={<PrivateRouteLayout />}>

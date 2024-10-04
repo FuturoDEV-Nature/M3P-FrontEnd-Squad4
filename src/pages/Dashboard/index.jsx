@@ -3,9 +3,9 @@ import { MapPinCheck } from "lucide-react";
 import { useEffect } from "react";
 import { getLocais, getUsers } from "../../api/endpoints";
 import { useState } from "react";
-
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+
 
 export default function Dashboard() {
   const [locais, setLocais] = useState([]);
