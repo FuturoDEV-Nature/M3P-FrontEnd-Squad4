@@ -5,7 +5,7 @@ const AuthContext = createContext({
   usuario: null,
   erroLogin: false,
   login: async () => {},
-  LogOut: () => {},
+  Logout: () => {},
 });
 
 export function AuthProvider({ children }) {
@@ -13,22 +13,29 @@ export function AuthProvider({ children }) {
   const [erroLogin, setErroLogin] = useState(null);
 
   async function Login({ email, senha }) {
-    const response = await axios.get("http://localhost:3000/usuarios");
-    response.data.map((user) => {
-      if (user.email === email && user.senha === senha) {
-        setUsuario(user);
-        setErroLogin(false);
-      } else {
-        setErroLogin(true);
-      }
+    try {
+      const response = await axios.get("http://localhost:3000/usuarios");
 
-      localStorage.setItem("usuario", JSON.stringify(user));
-    });
+      const user = response.data.find(
+        (user) => user.email === email && user.senha === senha
+      );
+
+      if (user) {
+        setUsuario(user);  
+        localStorage.setItem("usuario", JSON.stringify(user));  
+        setErroLogin(false);  
+      } else {
+        setErroLogin(true);  
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      setErroLogin(true);  
+    }
   }
 
   async function Logout() {
     setUsuario(null);
-    localStorage.removeItem('usuario')
+    localStorage.removeItem('usuario');  
   }
 
   return (
