@@ -5,7 +5,7 @@ const AuthContext = createContext({
   usuario: null,
   erroLogin: false,
   login: async () => {},
-  LogOut: () => {},
+  Logout: () => {},
 });
 
 export function AuthProvider({ children }) {
@@ -34,7 +34,7 @@ export function AuthProvider({ children }) {
 
   async function Logout() {
     setUsuario(null);
-    localStorage.removeItem('usuario')
+    localStorage.removeItem('usuario');  
   }
 
   return (
