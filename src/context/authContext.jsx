@@ -9,22 +9,29 @@ const AuthContext = createContext({
 });
 
 export function AuthProvider({ children }) {
-  const [usuario, setUsuario] = useState(JSON.parse(localStorage.getItem('usuario')));
+  const [usuario, setUsuario] = useState(
+    JSON.parse(localStorage.getItem("usuario"))
+  );
   const [erroLogin, setErroLogin] = useState(null);
 
-  async function Login({ email, senha }) {
+  async function Login({ email, senha, token }) {
     try {
-      const response = await axios.get("https://m3p-backend-squad4-dhih.onrender.com/usuario");
+      const response = await axios.post(
+        "https://m3p-backend-squad4-dhih.onrender.com/login",
+        data
+      );
+	  const token = req.Authorization
+	  console.log(":::TOKEN:::",token)
       const user = response.data.find(
         (user) => user.email === email && user.senha === senha
       );
-  
+
       if (user) {
         setUsuario(user);
         setErroLogin(false);
         localStorage.setItem("usuario", JSON.stringify(user));
       } else {
-        setErroLogin(true); 
+        setErroLogin(true);
       }
     } catch (error) {
       console.error("Erro na autenticação", error);
@@ -34,7 +41,7 @@ export function AuthProvider({ children }) {
 
   async function Logout() {
     setUsuario(null);
-    localStorage.removeItem('usuario');  
+    localStorage.removeItem("usuario");
   }
 
   return (
