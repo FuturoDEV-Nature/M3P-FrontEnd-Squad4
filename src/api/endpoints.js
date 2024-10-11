@@ -4,13 +4,9 @@ const urlPrefix = "http://localhost:3000";
 
 export const getUsers = async () => await axios.get(`${urlPrefix}/usuarios`)
     .then(function (response) {
-       return response.data
-       return response.data
-    
-    
        return response.data   
-    
-    
+
+       
     })
     .catch(function (error) {
         console.error(error);
@@ -53,7 +49,7 @@ export const getLocais = async () => await axios.get(`${urlPrefix}/locais`)
         return response.data;
     })
     .catch(function (error) {
-        console.error(error);
+        return error 
     })
 
 export const addLoccais = async (values) => await axios.post(`${urlPrefix}/locais`, values)
