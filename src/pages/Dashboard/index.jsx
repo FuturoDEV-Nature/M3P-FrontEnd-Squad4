@@ -5,8 +5,6 @@ import { getLocais, getUsers } from "../../api/endpoints";
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import axios from "axios";
-
 
 export default function Dashboard() {
   const [locais, setLocais] = useState([]);
@@ -15,33 +13,19 @@ export default function Dashboard() {
   const [qtdUsuarios, setQtdUsuarios] = useState(0);
 
   useEffect(() => {
-    getLocais().then((loc) => setLocais(loc));
-    getUsers().then((urs) => setUsers(urs));
-  }, []);
-
-  useEffect(() => {
-    getLocais().then((loc) => setQtdLocais(loc.length));
-  }, []);
-
-  useEffect(() => {
-    getUsers().then((users) => setQtdUsuarios(users.length));
-  }, []);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    axios
-      .get("http://localhost:3000/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    getLocais()
+      .then((loc) => {
+        setLocais(loc);
+        setQtdLocais(loc.length)
       })
-      .then((response) => {
-        response.data; 
+      .catch((err) => console.log(err));
+
+    getUsers()
+      .then((urs) => {
+        setUsers(urs);
+        setQtdUsuarios(urs.length)
       })
-      .catch((error) => {
-        console.error("Erro ao buscar os dados protegidos:", error);
-      });
+      .catch((err) => console.log(err));
   }, []);
 
   const getUserName = (idUsuario) => {
@@ -56,7 +40,7 @@ export default function Dashboard() {
   };
 
   
-
+  console.log(locais)
   return (
     <div>
       <h1 className="text-black p-4 font-sans text-xl font-medium">
