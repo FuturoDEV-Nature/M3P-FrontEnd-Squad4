@@ -5,7 +5,7 @@ const AuthContext = createContext({
   usuario: null,
   erroLogin: false,
   login: async () => {},
-  Logout: () => {},
+  logout: () => {},
 });
 
 export function AuthProvider({ children }) {
@@ -14,14 +14,24 @@ export function AuthProvider({ children }) {
 
   async function Login({ email, senha }) {
     try {
-      const response = await axios.get("http://localhost:3000/usuarios");
-      const user = response.data.find(
-        (user) => user.email === email && user.senha === senha
-      );
-  
-      if (user) {
+      const response = await axios.post("http://localhost:3001/login", { email, password: senha });
+      
+      const token = response.data.Token;
+
+      if (token) {
+        // Aqui você decodifica o payload do JWT para obter os dados do usuário
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        const user = {
+          id: payload.sub,
+          email: payload.email,
+          nome: payload.name,
+        };
+
         setUsuario(user);
         setErroLogin(false);
+        
+        // Armazena o token e o usuário no localStorage
+        localStorage.setItem("token", token);
         localStorage.setItem("usuario", JSON.stringify(user));
       } else {
         setErroLogin(true); 
@@ -34,7 +44,8 @@ export function AuthProvider({ children }) {
 
   async function Logout() {
     setUsuario(null);
-    localStorage.removeItem('usuario');  
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('token'); // Remover o token também
   }
 
   return (
