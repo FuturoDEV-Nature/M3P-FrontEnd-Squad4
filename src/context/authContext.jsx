@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
     try {
       const response = await axios.post("http://localhost:3000/login", { email, password: senha });
       
-      const token = response.data.Token;
+      const token = response.data.token;
 
       if (token) {
         const payload = JSON.parse(atob(token.split(".")[1]));
