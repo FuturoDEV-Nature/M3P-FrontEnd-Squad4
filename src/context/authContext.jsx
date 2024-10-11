@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
 
   async function Login({ email, senha }) {
     try {
-      const response = await axios.get("http://localhost:3000/usuarios");
+      const response = await axios.get("https://m3p-backend-squad4-t6lg.onrender.com/user");
       const user = response.data.find(
         (user) => user.email === email && user.senha === senha
       );
