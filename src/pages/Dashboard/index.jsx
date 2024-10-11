@@ -5,6 +5,7 @@ import { getLocais, getUsers } from "../../api/endpoints";
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import axios from "axios";
 
 
 export default function Dashboard() {
@@ -24,6 +25,23 @@ export default function Dashboard() {
 
   useEffect(() => {
     getUsers().then((users) => setQtdUsuarios(users.length));
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    axios
+      .get("http://localhost:3000/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        response.data; 
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar os dados protegidos:", error);
+      });
   }, []);
 
   const getUserName = (idUsuario) => {
