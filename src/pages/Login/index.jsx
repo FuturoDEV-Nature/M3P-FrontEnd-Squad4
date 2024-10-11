@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Leaf } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 
 export default function Login() {
-  const { Login, usuario, erroLogin } = useAuth();
+  const { Login,  erroLogin } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
@@ -15,12 +15,17 @@ export default function Login() {
     setError(null);
 
     try {
-      await Login({ email, senha }).then(() => {
-        navigate("/");
+      await Login({ email, senha })
+      if (!erroLogin) {
+        navigate("/")
+      } else {
+        setError("Email ou senha incorretos");
+      }
 
-      });
+      
     } catch (error) {
       console.log("falha no login");
+      setError('Erro na autenticação');
     }
   }
 

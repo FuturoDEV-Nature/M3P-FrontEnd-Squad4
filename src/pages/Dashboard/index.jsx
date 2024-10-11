@@ -6,7 +6,6 @@ import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-
 export default function Dashboard() {
   const [locais, setLocais] = useState([]);
   const [users, setUsers] = useState([]);
@@ -14,16 +13,19 @@ export default function Dashboard() {
   const [qtdUsuarios, setQtdUsuarios] = useState(0);
 
   useEffect(() => {
-    getLocais().then((loc) => setLocais(loc));
-    getUsers().then((urs) => setUsers(urs));
-  }, []);
+    getLocais()
+      .then((loc) => {
+        setLocais(loc);
+        setQtdLocais(loc.length)
+      })
+      .catch((err) => console.log(err));
 
-  useEffect(() => {
-    getLocais().then((loc) => setQtdLocais(loc.length));
-  }, []);
-
-  useEffect(() => {
-    getUsers().then((users) => setQtdUsuarios(users.length));
+    getUsers()
+      .then((urs) => {
+        setUsers(urs);
+        setQtdUsuarios(urs.length)
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const getUserName = (idUsuario) => {
@@ -38,7 +40,7 @@ export default function Dashboard() {
   };
 
   
-
+  console.log(locais)
   return (
     <div>
       <h1 className="text-black p-4 font-sans text-xl font-medium">
