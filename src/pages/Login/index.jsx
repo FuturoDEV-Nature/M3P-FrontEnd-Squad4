@@ -15,20 +15,15 @@ export default function Login() {
     setError(null);
 
     try {
-      await Login({ email, senha });
+      await Login({ email, senha }).then(() => {
+        navigate("/");
+
+      });
     } catch (error) {
       console.log("falha no login");
     }
   }
-  useEffect(() => {
-    if (usuario) {
-      navigate("/dashboard");
-    }
 
-    if (erroLogin === true) {
-      setError(<span>email/senha incorreta</span>);
-    }
-  }, [usuario, erroLogin]);
 
   return (
     <div className="min-h-screen bg-green-100 flex  justify-center items-center">
