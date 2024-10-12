@@ -17,7 +17,7 @@ export default function Login() {
     try {
       await Login({ email, senha })
       if (!erroLogin) {
-        navigate("/")
+        navigate("/login")
       } else {
         setError("Email ou senha incorretos");
       }
