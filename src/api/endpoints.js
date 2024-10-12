@@ -1,6 +1,10 @@
 import axios from "axios";
 
+<<<<<<< Updated upstream
 const urlPrefix = "http://localhost:3000";
+=======
+const urlPrefix = "https://localhost:3000";
+>>>>>>> Stashed changes
 
 export const getUsers = async () => await axios.get(`${urlPrefix}/usuarios`)
     .then(function (response) {

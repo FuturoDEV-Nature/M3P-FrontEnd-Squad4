@@ -29,7 +29,6 @@ export default function Login() {
     }
   }
 
-
   return (
     <div className="min-h-screen bg-green-100 flex  justify-center items-center">
       <div
