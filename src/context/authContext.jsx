@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
     console.log("Tentando logar com email:", email, "e senha:", senha);
     try {
       const response = await axios.post(
-        "https://api-nature-trip-revisao.onrender.com/login",
+        "https://m3p-backend-squad4-t6lg.onrender.com/login",
         {
           email,
           senha,
