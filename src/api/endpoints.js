@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const urlPrefix = "https://localhost:3000";
+export const urlPrefix = "http://localhost:3000";
 // const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com";
 
 export const getUsers = async () => await axios.get(`${urlPrefix}/user`)

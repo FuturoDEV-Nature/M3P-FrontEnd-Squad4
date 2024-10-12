@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import { urlPrefix } from "../api/endpoints";
 
 const AuthContext = createContext({
   usuario: null,
@@ -14,7 +15,7 @@ export function AuthProvider({ children }) {
 
   async function Login({ email, senha }) {
     try {
-      const response = await axios.post("https://localhost:3000/login", { email, senha });
+      const response = await axios.post(`${urlPrefix}/login`, { email, senha });
       console.log(response)
       
       const token = response.data.token;
