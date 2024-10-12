@@ -1,4 +1,4 @@
-feature/login-renderfeature/login-renderimport axios from "axios";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { addUser } from "../../api/endpoints";
 import { useNavigate } from "react-router-dom";
