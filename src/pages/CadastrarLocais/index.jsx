@@ -25,7 +25,7 @@ export default function CadastrarLocais() {
         navigate("/gerenciar-locais");
       })
       .catch((error) => {
-        alert("Houve um erro ao cadastrar usuário", error);
+        alert("Houve um erro ao cadastrar o local", error);
       });
   };
 
@@ -119,10 +119,10 @@ export default function CadastrarLocais() {
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               {...register("cep", {
-                required: "CEP é obrigatório",
                 pattern: {
-                  value: /^\d{5}\d{3}$/,
-                  message: "CEP inválido",
+                  value: /^\d{5}-?\d{3}$/,
+                  message:
+                    "CEP inválido.",
                 },
               })}
               onBlur={(e) => cepApi(e.target.value)}
@@ -139,9 +139,7 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full h-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("localizacao", {
-                required: "Localização é obrigatória",
-              })}
+              {...register("localizacao")}
             />
             {errors.localizacao && (
               <p className="text-red-500 text-sm mt-1">
