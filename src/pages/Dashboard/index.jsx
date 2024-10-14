@@ -1,11 +1,9 @@
 import { Users } from "lucide-react";
 import { MapPinCheck } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getLocais, getUsers } from "../../api/endpoints";
-import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-
 
 export default function Dashboard() {
   const [locais, setLocais] = useState([]);
@@ -28,7 +26,7 @@ export default function Dashboard() {
 
   const getUserName = (idUsuario) => {
     if (users.length) {
-      return users.find((user) => user.id === idUsuario).nome || "(não achado)";
+      return users.find((user) => user.id === idUsuario)?.nome || "(não achado)";
     }
     return "(não encontrado)";
   };
@@ -37,14 +35,12 @@ export default function Dashboard() {
     return parseFloat(coordinate.replace(',', '.'));
   };
 
-  
-
-  return (  
-<div className="bg-white min-h-screen">
-<h1 className="text-black bg-white p-4 font-sans text-xl font-medium">
+  return (
+    <div className="bg-white min-h-screen">
+      <h1 className="text-black bg-white p-4 font-sans text-xl font-medium">
         Dashboard
       </h1>
-      <hr></hr>
+      <hr />
 
       <div className="flex justify-evenly mt-10 bg-white">
         <div className="card bg-orange-500 text-black w-96">
@@ -85,7 +81,7 @@ export default function Dashboard() {
                   <td className="border text-black px-4 py-2">{local.nomeLocal}</td>
                   <td className="border text-black px-4 py-2">{local.descricao}</td>
                   <td className="border text-black px-4 py-2">
-                    {users ? getUserName(local.idUsuario) : "..."}
+                    {users.length ? getUserName(local.idUsuario) : "..."}
                   </td>
                   <td className="border text-black px-4 py-2">{local.localizacao}</td>
                 </tr>
@@ -95,7 +91,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className=" ms-40 my-10 bg-white">
+      <div className="ms-40 my-10 bg-white">
         <MapContainer center={[-23.55052, -46.633308]} zoom={5} style={{ height: "300px", width: "80%" }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -111,11 +107,11 @@ export default function Dashboard() {
                   {local.descricao}<br />
                   {local.localizacao}
                 </Popup>
-              </Marker >
+              </Marker>
             );
           })}
         </MapContainer>
       </div>
-    </div >
+    </div>
   );
 }

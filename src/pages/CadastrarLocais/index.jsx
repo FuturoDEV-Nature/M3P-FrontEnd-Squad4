@@ -93,24 +93,6 @@ export default function CadastrarLocais() {
             )}
           </div>
 
-          {/* <div>
-          <label className="block text-sm font-medium text-gray-700">
-            ID Usuário
-          </label>
-          <input
-            type="text"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            {...register("idUsuario", {
-              required: "ID do usuário é obrigatório",
-            })}
-          />
-          {errors.idUsuario && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.idUsuario.message}
-            </p>
-          )}
-        </div> */}
-
           <div>
             <label className="block text-sm font-medium text-gray-700">
               CEP
