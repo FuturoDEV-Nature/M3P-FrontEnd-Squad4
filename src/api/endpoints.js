@@ -11,12 +11,13 @@ const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com"; //render
 export const getUsers =  () => new Promise((resolve, reject) => 
     axios.get(`${urlPrefix}/user`)
         .then(function (response) {
-           return response.data   
+           resolve(response)  
     
            
         })
         .catch(function (error) {
             console.error(error);
+            reject(error);
         })
 
 ) 
