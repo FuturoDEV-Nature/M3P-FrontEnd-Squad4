@@ -22,13 +22,13 @@ export default function GerenciarLocais() {
   const editForm = (local) => {
     setEditarLocal(!editarLocal);
     setEdtandoId(local.id);
-    setValue("nomeLocal", local.nomeLocal);
+    setValue("name", local.name);
     setValue("descricao", local.descricao);
-    setValue("idUsuario", local.idUsuario);
+    setValue("userId", local.userId);
     setValue("cep", local.cep);
     setValue("localizacao", local.localizacao);
-    setValue("latitude", local.latitude);
-    setValue("longitude", local.longitude);
+    setValue("lat", local.lat);
+    setValue("lon", local.lon);
   };
 
   useEffect(() => {
@@ -68,8 +68,8 @@ export default function GerenciarLocais() {
           "localizacao",
           `${response.data.address}, ${response.data.district}, ${response.data.city} - ${response.data.state}`
         ),
-          setValue("latitude", `${response.data.lat}`),
-          setValue("longitude", `${response.data.lng}`);
+          setValue("lat", `${response.data.lat}`),
+          setValue("lon", `${response.data.lng}`);
       }
     } catch (error) {
       console.error("Erro ao buscar o endereço:", error);
@@ -95,8 +95,10 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
+feature/melhorias-gerais-estilos
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("nomeLocal", { required: true })}
+
               />
             </div>
             <div className="mb-4">
@@ -114,8 +116,10 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
+ feature/melhorias-gerais-estilos
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("idUsuario", { required: true })}
+
               />
             </div>
 
@@ -156,9 +160,11 @@ export default function GerenciarLocais() {
                 Latitude
               </label>
               <input
-                type="text"
+
+ feature/melhorias-gerais-estilos
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("latitude")}
+
               />
             </div>
             <div className="mb-4">
@@ -167,8 +173,10 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
+ feature/melhorias-gerais-estilos
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("longitude")}
+
               />
             </div>
             <button

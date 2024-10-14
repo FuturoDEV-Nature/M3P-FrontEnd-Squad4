@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+// import { urlPrefix } from "../api/endpoints";
 
 const AuthContext = createContext({
   usuario: null,
@@ -14,14 +15,27 @@ export function AuthProvider({ children }) {
 
   async function Login({ email, senha }) {
     try {
-      const response = await axios.get("http://localhost:3000/usuarios");
-      const user = response.data.find(
-        (user) => user.email === email && user.senha === senha
-      );
-  
-      if (user) {
+<<<<<<< Updated upstream
+      const response = await axios.post(`https://m3p-backend-squad4-t6lg.onrender.com/login`, { email, senha });
+=======
+      const response = await axios.post("https://m3p-backend-squad4-t6lg.onrender.com/login", { email, senha });
+>>>>>>> Stashed changes
+      console.log(response)
+      
+      const token = response.data.token;
+
+      if (token) {
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        const user = {
+          id: payload.sub,
+          email: payload.email,
+          nome: payload.name,
+        };
+
         setUsuario(user);
         setErroLogin(false);
+        
+        localStorage.setItem("token", token);
         localStorage.setItem("usuario", JSON.stringify(user));
       } else {
         setErroLogin(true); 
@@ -34,8 +48,10 @@ export function AuthProvider({ children }) {
 
   async function Logout() {
     setUsuario(null);
-    localStorage.removeItem('usuario');  
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('token');
   }
+
 
   return (
     <AuthContext.Provider value={{ usuario, Login, Logout, erroLogin }}>

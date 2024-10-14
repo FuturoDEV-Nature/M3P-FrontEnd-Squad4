@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../context/authContext";
 
 export default function CadastrarLocais() {
-  const { usuario } = useAuth();
+  const { userId } = useAuth();
   const {
     register,
     handleSubmit,
@@ -17,7 +17,7 @@ export default function CadastrarLocais() {
 
   const onSubmit = (data) => {
     addLoccais({
-      idUsuario: usuario.id,
+      userId: userId.id,
       ...data,
     })
       .then(() => {
@@ -40,6 +40,7 @@ export default function CadastrarLocais() {
         setValue(
           "localizacao",
           `${response.data.address}, ${response.data.district}, ${response.data.city} - ${response.data.state}`
+feature/melhorias-gerais-estilos
         );
         setValue("latitude", `${response.data.lat}`);
         setValue("longitude", `${response.data.lng}`);
@@ -101,9 +102,9 @@ export default function CadastrarLocais() {
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("cep", {
-                required: "CEP é obrigatório",
                 pattern: {
                   value: /^\d{5}-?\d{3}$/,
+ feature/melhorias-gerais-estilos
                   message: "CEP inválido",
                 },
               })}
@@ -120,11 +121,12 @@ export default function CadastrarLocais() {
             </label>
             <input
               type="text"
+ feature/melhorias-gerais-estilos
               className="mt-1 block w-full h-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("localizacao", {
                 required: "Localização é obrigatória",
               })}
-            />
+         
             {errors.localizacao && (
               <p className="text-red-500 text-sm mt-1">
                 {errors.localizacao.message}
