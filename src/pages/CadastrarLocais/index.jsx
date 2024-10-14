@@ -40,9 +40,10 @@ export default function CadastrarLocais() {
         setValue(
           "localizacao",
           `${response.data.address}, ${response.data.district}, ${response.data.city} - ${response.data.state}`
-        ),
-          setValue("lat", `${response.data.lat}`),
-          setValue("lon", `${response.data.lng}`);
+feature/melhorias-gerais-estilos
+        );
+        setValue("latitude", `${response.data.lat}`);
+        setValue("longitude", `${response.data.lng}`);
       }
     } catch (error) {
       console.error("Erro ao buscar o endereço:", error);
@@ -50,8 +51,8 @@ export default function CadastrarLocais() {
   };
 
   return (
-    <div>
-      <h1 className="text-black p-4 font-sans text-xl font-medium">
+    <div className="bg-white">
+      <h1 className="text-black p-4 font-sans text-xl font-medium bg-white">
         Cadastrar Local de Preservação da Natureza
       </h1>
       <hr></hr>
@@ -64,7 +65,7 @@ export default function CadastrarLocais() {
             </label>
             <input
               type="text"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("nomeLocal", {
                 required: "Nome do local é obrigatório",
               })}
@@ -81,7 +82,7 @@ export default function CadastrarLocais() {
               Descrição
             </label>
             <textarea
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("descricao", {
                 required: "Descrição é obrigatória",
               })}
@@ -93,36 +94,18 @@ export default function CadastrarLocais() {
             )}
           </div>
 
-          {/* <div>
-          <label className="block text-sm font-medium text-gray-700">
-            ID Usuário
-          </label>
-          <input
-            type="text"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            {...register("idUsuario", {
-              required: "ID do usuário é obrigatório",
-            })}
-          />
-          {errors.idUsuario && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.idUsuario.message}
-            </p>
-          )}
-        </div> */}
-
           <div>
             <label className="block text-sm font-medium text-gray-700">
               CEP
             </label>
             <input
               type="text"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("cep", {
                 pattern: {
                   value: /^\d{5}-?\d{3}$/,
-                  message:
-                    "CEP inválido.",
+ feature/melhorias-gerais-estilos
+                  message: "CEP inválido",
                 },
               })}
               onBlur={(e) => cepApi(e.target.value)}
@@ -138,9 +121,12 @@ export default function CadastrarLocais() {
             </label>
             <input
               type="text"
-              className="mt-1 block w-full h-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("localizacao")}
-            />
+ feature/melhorias-gerais-estilos
+              className="mt-1 block w-full h-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
+              {...register("localizacao", {
+                required: "Localização é obrigatória",
+              })}
+         
             {errors.localizacao && (
               <p className="text-red-500 text-sm mt-1">
                 {errors.localizacao.message}
@@ -154,7 +140,7 @@ export default function CadastrarLocais() {
             </label>
             <input
               type="text"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("latitude")}
             />
             {errors.latitude && (
@@ -170,7 +156,7 @@ export default function CadastrarLocais() {
             </label>
             <input
               type="text"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
               {...register("longitude")}
             />
             {errors.longitude && (
@@ -183,7 +169,7 @@ export default function CadastrarLocais() {
           <div>
             <button
               type="submit"
-              className="btn 200 bg-lime-300 w-full rounded-full"
+              className="btn 200 bg-lime-300 border-lime-300 border-0 text-black w-full rounded-full hover:bg-black hover:text-white active:bg-black active:text-white"
             >
               Cadastrar
             </button>

@@ -47,30 +47,34 @@ export default function Cadastro() {
       <div className="flex mt-4 justify-center">
         <Leaf size={64} color="lime" />
       </div>
-      <h2 className=" text-2xl text-lime font-bold text-center">
+      <h2 className=" text-2xl text-white font-bold text-center">
         {" "}
         Cite Natureza
       </h2>
       <div className="mt-10 mb-10 bg-white p-8 rounded shadow-md w-3/4">
-        <h1 className="text-2xl font-semibold text-center mb-6">Cadastre-se</h1>
+        <h1 className="text-2xl font-semibold text-center mb-6 text-black ">Cadastre-se</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex justify-center gap-10">
             <div className="grow">
-              <label className="label">Nome:</label>
+              <label className="label text-black">Nome:</label>
               <input
                 type="text"
-                className="input input-bordered w-full"
-                {...register("name", { required: "Nome é obrigatório!" })}
+feature/melhorias-gerais-estilos
+                className="input input-bordered w-full text-black bg-white"
+                {...register("nome", { required: "Nome é obrigatório!" })}
+
               />
               {errors.name && (
                 <p className="text-error">{errors.name.message}</p>
               )}
 
-              <label className="label">Data de nascimento:</label>
+              <label className="label text-black">Data de nascimento:</label>
               <input
                 type="date"
-                className="input input-bordered w-full"
-                {...register("data_nascimento", {
+ feature/melhorias-gerais-estilos
+                className="input input-bordered w-full text-black bg-white"
+                {...register("age", {
+                  
                   required: "Data de nascimento é obrigatória!",
                   validate: (value) =>
                     new Date().getFullYear() - new Date(value).getFullYear() >=
@@ -79,9 +83,9 @@ export default function Cadastro() {
               />
               {errors.data_nascimento && <p className="text-error">{errors.data_nascimento.message}</p>}
 
-              <label className="label">Sexo:</label>
+              <label className="label text-black">Sexo:</label>
               <select
-                className="select select-bordered w-full"
+                className="select select-bordered w-full text-black bg-white"
                 {...register("sexo", { required: "Sexo é obrigatório!" })}
                 defaultValue=""
               >
@@ -96,10 +100,10 @@ export default function Cadastro() {
                 <p className="text-error">{errors.sexo.message}</p>
               )}
 
-              <label className="label">CPF:</label>
+              <label className="label text-black">CPF:</label>
               <input
                 type="text"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full text-black bg-white"
                 {...register("cpf", {
                   required: "CPF é obrigatório!",
                   maxLength: {
@@ -117,10 +121,10 @@ export default function Cadastro() {
             </div>
 
             <div className="grow">
-              <label className="label">CEP:</label>
+              <label className="label text-black">CEP:</label>
               <input
                 type="text"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full text-black bg-white"
                 {...register("cep", {
                   required: "O CEP é obrigatório",
                   maxLength: {
@@ -136,27 +140,27 @@ export default function Cadastro() {
               />
               {errors.cep && <p className="text-error">{errors.cep.message}</p>}
 
-              <label className="label">Endereço:</label>
+              <label className="label text-black">Endereço:</label>
               <input
                 type="text"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full text-black bg-white"
                 {...register("endereco")}
               />
 
-              <label className="label">Email:</label>
+              <label className="label text-black">Email:</label>
               <input
                 type="email"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full text-black bg-white"
                 {...register("email", { required: "Email é obrigatório!" })}
               />
               {errors.email && (
                 <p className="text-error">{errors.email.message}</p>
               )}
 
-              <label className="label">Senha:</label>
+              <label className="label text-black">Senha:</label>
               <input
                 type="password"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full text-black bg-white"
                 {...register("senha", { required: "Senha é obrigatória!" })}
               />
               {errors.senha && (
@@ -166,7 +170,7 @@ export default function Cadastro() {
           </div>
           <button
             type="submit"
-            className="btn bg-lime-300 w-full rounded-full mt-10"
+            className="btn bg-lime-300 w-full rounded-full mt-10 btn 200 bg-lime-300 border-lime-300 border-0 text-white w-full rounded-full hover:bg-black hover:text-white active:bg-black active:text-white"
           >
             Cadastrar
           </button>

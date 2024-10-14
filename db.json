@@ -76,6 +76,17 @@
       "endereco": "Estrada da Praia, Restinga de Maricá, Maricá - RJ",
       "email": "gabi@email.com",
       "senha": "123"
+    },
+    {
+      "id": "2041",
+      "nome": "Ágatha",
+      "age": "1992-06-24",
+      "sexo": "feminino",
+      "cpf": "098.765.432-12",
+      "cep": "21031-000",
+      "endereco": "Rua Aimara, Ramos, Rio de Janeiro - RJ",
+      "email": "agatha@gmail.com",
+      "senha": "321"
     }
   ],
   "locais": [
@@ -128,6 +139,16 @@
       "localizacao": "Arraial do Cabo - RJ",
       "latitude": "-22.989598",
       "longitude": " -42.014858"
+    },
+    {
+      "nomeLocal": "ddd",
+      "descricao": "ddd",
+      "idUsuario": "2041",
+      "cep": "88085200",
+      "localizacao": "Rua João Meirelles, Abraão, Florianópolis - SC",
+      "latitude": "-27.60631",
+      "longitude": "-48.59433",
+      "id": "a2a1"
     }
   ]
 }

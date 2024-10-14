@@ -44,9 +44,9 @@ export default function Login() {
             <div className="flex  justify-center">
               <Leaf size={64} color="lime" />
             </div>
-            <h1 className=" text-5xl text-lime font-bold"> Cite Natureza</h1>
+            <h1 className=" text-5xl text-white font-bold"> Cite Natureza</h1>
             <div className=" p-8 rounded  w-80">
-              <p className="mb-5 leading-6 text-lime text-md">
+              <p className="mb-5 leading-6 text-white text-md">
                 Olá aventureiro, seja bem vinda a nossa plataforma de
                 compartilhar locais da natureza e experiências em trilhas,
                 praias, cachoeiras, parques e outros lugares incríveis.
@@ -58,7 +58,7 @@ export default function Login() {
                 <div className="flex flex-col space-y-4">
                   <input
                     type="email"
-                    className="input input-bordered text-black"
+                    className="input input-bordered text-black bg-white"
                     placeholder="Email"
                     value={email}
                     required
@@ -66,17 +66,17 @@ export default function Login() {
                   />
                   <input
                     type="password"
-                    className="input input-bordered text-black"
+                    className="input input-bordered text-black bg-white"
                     placeholder="Senha"
                     value={senha}
                     required
                     onChange={(e) => setSenha(e.target.value)}
                   />
 
-                  <span>
+                  <span className="text-white">
                     Não tem uma conta?{" "}
                     <Link
-                      className="underline underline-offset-4"
+                      className="underline underline-offset-4 text-white"
                       to="/cadastro"
                     >
                       Cadastre-se
@@ -86,8 +86,7 @@ export default function Login() {
                     <p className="text-red-500">Email/Senha incorreta</p>
                   )}
                   <button
-                    className="btn text-base-200 bg-lime-300 w-full rounded-full"
-                    type="submit"
+                    className="btn 200 bg-lime-300 border-lime-300 border-0 text-white w-full rounded-full hover:bg-black hover:text-white active:bg-black active:text-white"
                   >
                     Entrar
                   </button>

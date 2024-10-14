@@ -28,12 +28,12 @@ export function PrivateRouteLayout() {
           <div className="flex  justify-center">
             <Leaf size={64} color="lime" />
           </div>
-          <h2 className=" text-2xl text-lime font-bold text-center">
+          <h2 className=" text-2xl text-black font-bold text-center">
             {" "}
             Cite Natureza
           </h2>
-          <h3 className="text-bold font-medium">Menu</h3>
-          <ul className="menu bg-lime-300 text-base-content flex-grow">
+          <h3 className="text-black font-medium">Menu</h3>
+          <ul className="menu bg-lime-300 text-base-content flex-grow text-black">
             <li>
               <Link to="/">Dashboard</Link>
             </li>
@@ -44,7 +44,7 @@ export function PrivateRouteLayout() {
               <Link to="/gerenciar-locais">Gerenciar locais</Link>
             </li>
           </ul>
-          <div className="bg-lime-300">
+          <div className="bg-lime-300 text-black">
             {usuario && <p>{usuario.email}</p>}
 
             <button onClick={handleLogout}>
