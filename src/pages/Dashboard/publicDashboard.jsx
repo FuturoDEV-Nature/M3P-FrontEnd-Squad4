@@ -27,7 +27,8 @@ export default function PublicDashboard() {
           </div>
         </div>
       </nav>
-
+      
+      <div className="bg-white">
       <section className="bg-lime-100 text-center py-10">
         <h2 className="text-3xl font-bold text-gray-700">Compartilhe a Natureza com o Mundo</h2>
         <p className="text-lg text-gray-600 mt-4">
@@ -37,7 +38,7 @@ export default function PublicDashboard() {
         </p>
       </section>
 
-      <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-white">
         {locais.map((local) => (
           <div
             key={local.id}
@@ -50,7 +51,7 @@ export default function PublicDashboard() {
         ))}
       </div>
 
-      <div className=" ms-40 my-10">
+      <div className=" ms-40 my-10 bg-white">
         <MapContainer
           center={[-23.55052, -46.633308]}
           zoom={5}
@@ -75,6 +76,7 @@ export default function PublicDashboard() {
           })}
         </MapContainer>
       </div>
+     </div>
     </div>
   );
 }

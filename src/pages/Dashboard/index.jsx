@@ -39,14 +39,14 @@ export default function Dashboard() {
 
   
 
-  return (
-    <div>
-      <h1 className="text-black p-4 font-sans text-xl font-medium">
+  return (  
+<div className="bg-white min-h-screen">
+<h1 className="text-black bg-white p-4 font-sans text-xl font-medium">
         Dashboard
       </h1>
       <hr></hr>
 
-      <div className="flex justify-evenly mt-10">
+      <div className="flex justify-evenly mt-10 bg-white">
         <div className="card bg-orange-500 text-black w-96">
           <div className="card-body">
             <h2 className="card-title">Usuários ativos</h2>
@@ -68,26 +68,26 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 bg-white">
         <div className="overflow-x-auto w-full max-w-4xl">
           <table className="table-auto w-full mb-7">
             <thead className="bg-neutral-100">
               <tr>
-                <th className="px-4 py-2">Nome do local</th>
-                <th className="px-4 py-2">Descrição do local</th>
-                <th className="px-4 py-2">Usuário</th>
-                <th className="px-4 py-2">Localização</th>
+                <th className="text-black px-4 py-2">Nome do local</th>
+                <th className="text-black px-4 py-2">Descrição do local</th>
+                <th className="text-black px-4 py-2">Usuário</th>
+                <th className="text-black px-4 py-2">Localização</th>
               </tr>
             </thead>
             <tbody>
               {locais.map((local) => (
                 <tr key={local.id}>
-                  <td className="border px-4 py-2">{local.nomeLocal}</td>
-                  <td className="border px-4 py-2">{local.descricao}</td>
-                  <td className="border px-4 py-2">
+                  <td className="border text-black px-4 py-2">{local.nomeLocal}</td>
+                  <td className="border text-black px-4 py-2">{local.descricao}</td>
+                  <td className="border text-black px-4 py-2">
                     {users ? getUserName(local.idUsuario) : "..."}
                   </td>
-                  <td className="border px-4 py-2">{local.localizacao}</td>
+                  <td className="border text-black px-4 py-2">{local.localizacao}</td>
                 </tr>
               ))}
             </tbody>
@@ -95,7 +95,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className=" ms-40 my-10 ">
+      <div className=" ms-40 my-10 bg-white">
         <MapContainer center={[-23.55052, -46.633308]} zoom={5} style={{ height: "300px", width: "80%" }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -111,11 +111,11 @@ export default function Dashboard() {
                   {local.descricao}<br />
                   {local.localizacao}
                 </Popup>
-              </Marker>
+              </Marker >
             );
           })}
         </MapContainer>
       </div>
-    </div>
+    </div >
   );
 }
