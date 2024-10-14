@@ -40,9 +40,9 @@ export default function CadastrarLocais() {
         setValue(
           "localizacao",
           `${response.data.address}, ${response.data.district}, ${response.data.city} - ${response.data.state}`
-        ),
-          setValue("latitude", `${response.data.lat}`),
-          setValue("longitude", `${response.data.lng}`);
+        );
+        setValue("latitude", `${response.data.lat}`);
+        setValue("longitude", `${response.data.lng}`);
       }
     } catch (error) {
       console.error("Erro ao buscar o endereço:", error);
@@ -56,7 +56,7 @@ export default function CadastrarLocais() {
       </h1>
       <hr></hr>
 
-      <div className="max-w-lg mx-auto mt-10 p-4 bg-white rounded shadow-md bg-white">
+      <div className="max-w-lg mx-auto mt-10 p-4 bg-white rounded shadow-md">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -103,7 +103,7 @@ export default function CadastrarLocais() {
               {...register("cep", {
                 required: "CEP é obrigatório",
                 pattern: {
-                  value: /^\d{5}\d{3}$/,
+                  value: /^\d{5}-?\d{3}$/,
                   message: "CEP inválido",
                 },
               })}

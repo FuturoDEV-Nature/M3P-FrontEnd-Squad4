@@ -12,16 +12,19 @@ export default function Dashboard() {
   const [qtdUsuarios, setQtdUsuarios] = useState(0);
 
   useEffect(() => {
-    getLocais().then((loc) => setLocais(loc));
-    getUsers().then((urs) => setUsers(urs));
-  }, []);
+    getLocais()
+      .then((loc) => {
+        setLocais(loc);
+        setQtdLocais(loc.length);
+      })
+      .catch((err) => console.log(err));
 
-  useEffect(() => {
-    getLocais().then((loc) => setQtdLocais(loc.length));
-  }, []);
-
-  useEffect(() => {
-    getUsers().then((users) => setQtdUsuarios(users.length));
+    getUsers()
+      .then((urs) => {
+        setUsers(urs);
+        setQtdUsuarios(urs.length);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const getUserName = (idUsuario) => {
@@ -34,6 +37,8 @@ export default function Dashboard() {
   const parseCoordinates = (coordinate) => {
     return parseFloat(coordinate.replace(',', '.'));
   };
+
+  console.log(locais); // Mantido o console.log
 
   return (
     <div className="bg-white min-h-screen">
