@@ -1,10 +1,16 @@
-* {
-  
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  
+  min-height: 100%;
+  background-color: white !important; 
 }
+
+#root {
+  min-height: 100vh; 
+  background-color: white !important; 
+}
+
+
 
 /* .logo {
   height: 6em;

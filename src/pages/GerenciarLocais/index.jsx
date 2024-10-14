@@ -77,25 +77,25 @@ export default function GerenciarLocais() {
   };
 
   return (
-    <div>
-      <h1 className="text-black p-4 font-sans text-xl font-medium">
+    <div className="bg-white">
+      <h1 className="text-black p-4 font-sans text-xl font-medium bg-white">
         Gerenciar Locais
       </h1>
       <hr></hr>
 
-      <div className="flex flex-col items-center mt-10">
+      <div className="flex flex-col items-center mt-10 bg-white ">
         {editarLocal && (
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="w-full max-w-md mb-8"
           >
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 bg-white">
                 Nome do local
               </label>
               <input
                 type="text"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("nomeLocal", { required: true })}
               />
             </div>
@@ -104,7 +104,7 @@ export default function GerenciarLocais() {
                 Descrição do local
               </label>
               <textarea
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("descricao", { required: true })}
               />
             </div>
@@ -114,7 +114,7 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("idUsuario", { required: true })}
               />
             </div>
@@ -125,7 +125,7 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white text-black"
                 {...register("cep", {
                   pattern: {
                     value: /^\d{5}\d{3}$/,
@@ -147,7 +147,7 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
-                className="mt-1 block w-full h-10 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full h-10 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("localizacao", { required: true })}
               />
             </div>
@@ -157,7 +157,7 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("latitude")}
               />
             </div>
@@ -167,13 +167,13 @@ export default function GerenciarLocais() {
               </label>
               <input
                 type="text"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-white text-black"
                 {...register("longitude")}
               />
             </div>
             <button
               type="submit"
-              className="btn bg-lime-300 w-full rounded-full"
+              className="btn bg-lime-300 text-black w-full rounded-full hover:bg-black hover:text-white"
             >
               Salvar
             </button>
@@ -184,14 +184,14 @@ export default function GerenciarLocais() {
           <table className="table-auto w-full">
             <thead className="bg-neutral-100">
               <tr>
-                <th className="px-4 py-2">Nome do local</th>
-                <th className="px-4 py-2">Descrição do local</th>
-                <th className="px-4 py-2">Usuário</th>
-                <th className="px-4 py-2">Localização</th>
-                <th className="px-4 py-2">Longitude</th>
-                <th className="px-4 py-2">Latitude</th>
+                <th className="text-black px-4 py-2">Nome do local</th>
+                <th className="text-black px-4 py-2">Descrição do local</th>
+                <th className="text-black px-4 py-2">Usuário</th>
+                <th className="text-black px-4 py-2">Localização</th>
+                <th className="text-black px-4 py-2">Longitude</th>
+                <th className="text-black px-4 py-2">Latitude</th>
 
-                <th className="px-4 py-2">Ações</th>
+                <th className="text-black px-4 py-2">Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -199,14 +199,14 @@ export default function GerenciarLocais() {
                 .filter((local) => local.idUsuario === usuario.id)
                 .map((local) => (
                   <tr key={local.id}>
-                    <td className="border px-4 py-2">{local.nomeLocal}</td>
-                    <td className="border px-4 py-2">{local.descricao}</td>
-                    <td className="border px-4 py-2">{local.idUsuario}</td>
-                    <td className="border px-4 py-2">{local.localizacao}</td>
-                    <td className="border px-4 py-2">{local.longitude}</td>
-                    <td className="border px-4 py-2">{local.latitude}</td>
+                    <td className="border text-black px-4 py-2">{local.nomeLocal}</td>
+                    <td className="border text-black px-4 py-2">{local.descricao}</td>
+                    <td className="border text-black px-4 py-2">{local.idUsuario}</td>
+                    <td className="border text-black px-4 py-2">{local.localizacao}</td>
+                    <td className="border text-black px-4 py-2">{local.longitude}</td>
+                    <td className="border text-black px-4 py-2">{local.latitude}</td>
 
-                    <td className="border py-2 ">
+                    <td className="border text-black px-4 py-2 ">
                       <button
                         className="text-blue-500 hover:text-blue-700 mx-3"
                         onClick={() => editForm(local)}
