@@ -1,12 +1,8 @@
 import axios from "axios";
 
-<<<<<<< Updated upstream
 // export const urlPrefix = "http://localhost:3000";
 export const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com";
-=======
-// export const urlPrefix = "http://localhost:3000"; //local
-const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com"; //render
->>>>>>> Stashed changes
+
 
 export const getUsers =  () => new Promise((resolve, reject) => 
     axios.get(`${urlPrefix}/user`)
@@ -69,7 +65,7 @@ export const getLocais = () => new Promise((resolve, reject) => {
     })
 })
 
-export const addLoccais = (values) => new Promise((resolve, reject) => {
+export const addLocais = (values) => new Promise((resolve, reject) => {
     axios.post(`${urlPrefix}/local`, values)
     .then(function (response) {
         resolve(response.data);
