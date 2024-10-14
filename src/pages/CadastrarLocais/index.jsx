@@ -25,7 +25,7 @@ export default function CadastrarLocais() {
         navigate("/gerenciar-locais");
       })
       .catch((error) => {
-        alert("Houve um erro ao cadastrar usuário", error);
+        alert("Houve um erro ao cadastrar o local", error);
       });
   };
 
