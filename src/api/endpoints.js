@@ -25,7 +25,7 @@ export const getUser = (id) => new Promise((resolve, reject) => {
 
 }) 
 
-export const addUser = async (values) => await axios.post(`${urlPrefix}/user/`, values)
+export const addUser = async (values) => await axios.post(`${urlPrefix}/user`, values)
     .then(function (response) {
         return response.data
     })

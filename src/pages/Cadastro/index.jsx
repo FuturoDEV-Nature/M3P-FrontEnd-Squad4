@@ -60,24 +60,24 @@ export default function Cadastro() {
               <input
                 type="text"
                 className="input input-bordered w-full"
-                {...register("nome", { required: "Nome é obrigatório!" })}
+                {...register("name", { required: "Nome é obrigatório!" })}
               />
               {errors.name && (
-                <p className="text-error">{errors.nome.message}</p>
+                <p className="text-error">{errors.name.message}</p>
               )}
 
               <label className="label">Data de nascimento:</label>
               <input
                 type="date"
                 className="input input-bordered w-full"
-                {...register("age", {
+                {...register("data_nascimento", {
                   required: "Data de nascimento é obrigatória!",
                   validate: (value) =>
                     new Date().getFullYear() - new Date(value).getFullYear() >=
                       18 || "Você deve ter no mínimo 18 anos!",
                 })}
               />
-              {errors.age && <p className="text-error">{errors.age.message}</p>}
+              {errors.data_nascimento && <p className="text-error">{errors.data_nascimento.message}</p>}
 
               <label className="label">Sexo:</label>
               <select

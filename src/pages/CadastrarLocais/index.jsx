@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../context/authContext";
 
 export default function CadastrarLocais() {
-  const { usuario } = useAuth();
+  const { userId } = useAuth();
   const {
     register,
     handleSubmit,
@@ -17,7 +17,7 @@ export default function CadastrarLocais() {
 
   const onSubmit = (data) => {
     addLoccais({
-      idUsuario: usuario.id,
+      userId: userId.id,
       ...data,
     })
       .then(() => {
@@ -41,8 +41,8 @@ export default function CadastrarLocais() {
           "localizacao",
           `${response.data.address}, ${response.data.district}, ${response.data.city} - ${response.data.state}`
         ),
-          setValue("latitude", `${response.data.lat}`),
-          setValue("longitude", `${response.data.lng}`);
+          setValue("lat", `${response.data.lat}`),
+          setValue("lon", `${response.data.lng}`);
       }
     } catch (error) {
       console.error("Erro ao buscar o endereço:", error);
@@ -65,13 +65,13 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("nomeLocal", {
+              {...register("name", {
                 required: "Nome do local é obrigatório",
               })}
             />
-            {errors.nomeLocal && (
+            {errors.name && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.nomeLocal.message}
+                {errors.name.message}
               </p>
             )}
           </div>
@@ -155,11 +155,11 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("latitude")}
+              {...register("lat")}
             />
-            {errors.latitude && (
+            {errors.lat && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.latitude.message}
+                {errors.lat.message}
               </p>
             )}
           </div>
@@ -171,11 +171,11 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("longitude")}
+              {...register("lon")}
             />
-            {errors.longitude && (
+            {errors.lon && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.longitude.message}
+                {errors.lon.message}
               </p>
             )}
           </div>
