@@ -3,7 +3,6 @@ import axios from "axios";
 // export const urlPrefix = "http://localhost:3000";
 export const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com";
 
-
 export const getUsers =  () => new Promise((resolve, reject) => 
     axios.get(`${urlPrefix}/user`)
         .then(function (response) {
