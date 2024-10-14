@@ -8,15 +8,18 @@ export const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com";
 const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com"; //render
 >>>>>>> Stashed changes
 
-export const getUsers = async () => await axios.get(`${urlPrefix}/user`)
-    .then(function (response) {
-       return response.data   
+export const getUsers =  () => new Promise((resolve, reject) => 
+    axios.get(`${urlPrefix}/user`)
+        .then(function (response) {
+           return response.data   
+    
+           
+        })
+        .catch(function (error) {
+            console.error(error);
+        })
 
-       
-    })
-    .catch(function (error) {
-        console.error(error);
-    })
+) 
 
 export const getUser = (id) => new Promise((resolve, reject) => {
     axios.get(`${urlPrefix}/user/${id}`)
