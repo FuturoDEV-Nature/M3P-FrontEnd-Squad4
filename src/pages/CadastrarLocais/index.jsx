@@ -65,13 +65,13 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("name", {
+              {...register("nomeLocal", {
                 required: "Nome do local é obrigatório",
               })}
             />
-            {errors.name && (
+            {errors.nomeLocal && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.name.message}
+                {errors.nomeLocal.message}
               </p>
             )}
           </div>
@@ -155,11 +155,11 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("lat")}
+              {...register("latitude")}
             />
-            {errors.lat && (
+            {errors.latitude && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.lat.message}
+                {errors.latitude.message}
               </p>
             )}
           </div>
@@ -171,11 +171,11 @@ export default function CadastrarLocais() {
             <input
               type="text"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              {...register("lon")}
+              {...register("longitude")}
             />
-            {errors.lon && (
+            {errors.longitude && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.lon.message}
+                {errors.longitude.message}
               </p>
             )}
           </div>

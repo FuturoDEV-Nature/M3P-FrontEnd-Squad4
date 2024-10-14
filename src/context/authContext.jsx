@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-import { urlPrefix } from "../api/endpoints";
+// import { urlPrefix } from "../api/endpoints";
 
 const AuthContext = createContext({
   usuario: null,
@@ -15,7 +15,11 @@ export function AuthProvider({ children }) {
 
   async function Login({ email, senha }) {
     try {
+<<<<<<< Updated upstream
       const response = await axios.post(`https://m3p-backend-squad4-t6lg.onrender.com/login`, { email, senha });
+=======
+      const response = await axios.post("https://m3p-backend-squad4-t6lg.onrender.com/login", { email, senha });
+>>>>>>> Stashed changes
       console.log(response)
       
       const token = response.data.token;

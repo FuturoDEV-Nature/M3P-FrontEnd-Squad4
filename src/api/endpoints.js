@@ -1,7 +1,12 @@
 import axios from "axios";
 
+<<<<<<< Updated upstream
 // export const urlPrefix = "http://localhost:3000";
 export const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com";
+=======
+// export const urlPrefix = "http://localhost:3000"; //local
+const urlPrefix = "https://m3p-backend-squad4-t6lg.onrender.com"; //render
+>>>>>>> Stashed changes
 
 export const getUsers = async () => await axios.get(`${urlPrefix}/user`)
     .then(function (response) {
