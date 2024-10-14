@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { addLoccais } from "../../api/endpoints";
+import { addLocais } from "../../api/endpoints";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/authContext";
 
@@ -16,8 +16,8 @@ export default function CadastrarLocais() {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    addLoccais({
-      userId: userId.id,
+    addLocais({
+      userId,
       ...data,
     })
       .then(() => {
