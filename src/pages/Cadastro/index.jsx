@@ -59,7 +59,6 @@ export default function Cadastro() {
               <label className="label text-black">Nome:</label>
               <input
                 type="text"
-feature/melhorias-gerais-estilos
                 className="input input-bordered w-full text-black bg-white"
                 {...register("nome", { required: "Nome é obrigatório!" })}
 
@@ -71,7 +70,6 @@ feature/melhorias-gerais-estilos
               <label className="label text-black">Data de nascimento:</label>
               <input
                 type="date"
- feature/melhorias-gerais-estilos
                 className="input input-bordered w-full text-black bg-white"
                 {...register("age", {
                   

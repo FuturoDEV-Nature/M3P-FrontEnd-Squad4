@@ -15,7 +15,6 @@ export default function Dashboard() {
     getLocais()
       .then((loc) => {
         setLocais(loc);
-feature/melhorias-gerais-estilos
         setQtdLocais(loc.length);
 
       })
@@ -24,7 +23,7 @@ feature/melhorias-gerais-estilos
     getUsers()
       .then((urs) => {
         setUsers(urs);
-feature/melhorias-gerais-estilos
+
         setQtdUsuarios(urs.length);
       })
       .catch((err) => console.log(err));
@@ -41,7 +40,6 @@ feature/melhorias-gerais-estilos
     return parseFloat(coordinate.replace(',', '.'));
   };
 
-feature/melhorias-gerais-estilos
   console.log(locais); // Mantido o console.log
   return (
     <div className="bg-white min-h-screen">
